@@ -1,14 +1,17 @@
-package com.aon.search.job;
+package com.aon.search.core;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@ComponentScan
 @RequestMapping("/search/job")
 public class JobSearchController {
 
@@ -17,22 +20,24 @@ public class JobSearchController {
 
 	/**
 	 * 
+	 * Sample URL -
+	 * 
 	 * http://localhost:8080/search/job/cleaning?criterias={postcode=2000;
 	 * duration=1}
 	 * 
-	 * TODO 1 Tomcat not working . see why . once done find the way to add path
-	 * variable and requestparams
-	 * 
 	 * @param criterias
 	 * @return
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/cleaning", produces = "application/json")
-	public List<Map<String, String>> cleaningJobs(@RequestParam(value = "criterias") String criterias) {
+	public List<Map<String, Object>> cleaningJobs(@RequestParam(value = "criterias") String criterias)
+			throws IOException {
 		return jobSearchServiceImpl.getSearchResult(criterias, "Cleaning");
 	}
 
-	@RequestMapping("/plumbing")
-	public String plumbingJobs(@RequestParam(value = "criteria") String criteria) {
-		return null;
+	@RequestMapping(value = "/plumbing", produces = "application/json")
+	public List<Map<String, Object>> plumbingJobs(@RequestParam(value = "criterias") String criterias)
+			throws IOException {
+		return jobSearchServiceImpl.getSearchResult(criterias, "Plumbing");
 	}
 }

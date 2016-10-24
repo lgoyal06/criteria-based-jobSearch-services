@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class LoadDataFromPersistantSourceUtils {
+public class FileDataToMapObjectConvertor {
 
 	public static Map<String, Object> readFile(File fin) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(fin));
@@ -68,7 +68,7 @@ public class LoadDataFromPersistantSourceUtils {
 			supportedPostalAddress.addAll(Arrays.asList(splitPostalSupported[1].trim().replace("[", "").replace("]", "")
 					.replace("{", "").replace("}", "").split(";")));
 
-			rules.put("supportedPostalCodes", supportedPostalAddress);
+			rules.put("postalCodes", supportedPostalAddress);
 			if (columnsArray.length >= 5) {
 				String[] splitCustomRules = columnsArray[4].split(";");
 				for (int i = 0; i < splitCustomRules.length; ++i) {

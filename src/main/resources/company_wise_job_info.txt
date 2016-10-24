@@ -1,4 +1,4 @@
-A City Odd Jobs,Cleaning,232323,{postalsSupported : [2000;2003]},{minHours:2;rooms:1}
+A City Odd Jobs,Cleaning,232323,{postalsSupported : [2000;2003]},{minHours:3;rooms:1}
 A City Odd Jobs,Plumbing,232323,{postalsSupported:[2000;2003]},{24hourService:true}
 B City Odd Jobs4,Cleaning,232323,{postalsSupported : [2000]},{minHours:2;rooms:5}
 B City Odd Jobs4,Plumbing,232323,{postalsSupported:[2000]},{minHours:2;24hourService:false}
