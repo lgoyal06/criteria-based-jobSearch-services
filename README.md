@@ -1,6 +1,6 @@
 # criteria-based-jobSearch-services
 
-Test Project to build restful service that will send you list companies based upon job and rules that u define in the requested URL
+Test Project to build restful service that will send you list of companies based upon job and criteria that u define in the requested URL
 
 Example of URL
 
