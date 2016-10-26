@@ -22,13 +22,16 @@ public class JobSearchServiceImpl {
 	}
 
 	private Map<String, String> getCriteriaParametersMap(String criterias) {
-		String[] arrayOfCriteria = criterias.split(";");
-		Map<String, String> criteriaKeyValuePairs = new HashMap<String, String>();
-		for (int i = 0; i < arrayOfCriteria.length; ++i) {
-			String[] split = arrayOfCriteria[i].split("=");
-			criteriaKeyValuePairs.put(split[0].replace("{", "").replace("}", ""),
-					split[1].replace("{", "").replace("}", ""));
+		if (criterias != null) {
+			String[] arrayOfCriteria = criterias.split(";");
+			Map<String, String> criteriaKeyValuePairs = new HashMap<String, String>();
+			for (int i = 0; i < arrayOfCriteria.length; ++i) {
+				String[] split = arrayOfCriteria[i].split("=");
+				criteriaKeyValuePairs.put(split[0].replace("{", "").replace("}", ""),
+						split[1].replace("{", "").replace("}", ""));
+			}
+			return criteriaKeyValuePairs;
 		}
-		return criteriaKeyValuePairs;
+		return null;
 	}
 }

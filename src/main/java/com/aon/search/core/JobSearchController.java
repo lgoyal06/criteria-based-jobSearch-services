@@ -30,13 +30,13 @@ public class JobSearchController {
 	 * @throws IOException
 	 */
 	@RequestMapping(value = "/cleaning", produces = "application/json")
-	public List<Map<String, Object>> cleaningJobs(@RequestParam(value = "criterias") String criterias)
+	public List<Map<String, Object>> cleaningJobs(@RequestParam(value = "criterias", required = false) String criterias)
 			throws IOException {
 		return jobSearchServiceImpl.getSearchResult(criterias, "Cleaning");
 	}
 
 	@RequestMapping(value = "/plumbing", produces = "application/json")
-	public List<Map<String, Object>> plumbingJobs(@RequestParam(value = "criterias") String criterias)
+	public List<Map<String, Object>> plumbingJobs(@RequestParam(value = "criterias", required = false) String criterias)
 			throws IOException {
 		return jobSearchServiceImpl.getSearchResult(criterias, "Plumbing");
 	}
