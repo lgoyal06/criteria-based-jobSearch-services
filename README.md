@@ -14,8 +14,12 @@ Example of URL
 
 3. Search companies with job plumbing and postCode as 2000 and 24HourService as true
 
-   URL - http://localhost:8080/search/job/plumbing?criterias={postCode=2000;24HourService=true}
+   URL - http://localhost:8080/search/job/plumbing?criterias={postCode=2000;24hourService=true}
    
 4. Search companies with job plumbing and no criteria
 
    URL - http://localhost:8080/search/job/plumbing
+   
+5. Search companies with job plumbing and postCode as 2000 and 24HourService as true and minHours=1
+
+   URL - http://localhost:8080/search/job/plumbing?criterias={postCode=2000;24hourService=true;minHours=1}
