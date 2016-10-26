@@ -1,0 +1,6 @@
+City Odd Jobs,Cleaning,99991111,{postalsSupported :[2000;2001]},{minHours:2;minRooms:1}
+Inner West Cleaning,Cleaning,99992222,{postalsSupported:[2000;2204;2042]},{minHours:3;minRooms:2}
+Any Jobs,Cleaning,99993333
+City Odd Jobs,Plumbing,99991111,{postalsSupported:[2000;2031]},{minHours:3;24HoursService:true}
+City Plumbing,Plumbing,99994444,{postalsSupported:[2000;2034]},{minHours:1;24HoursService:true}
+Eastern Water,Plumbing,99995555,{postalsSupported:[2000;2034]},{minHours:2;24HoursService:false}

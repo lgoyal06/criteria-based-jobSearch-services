@@ -68,7 +68,7 @@ public class FileDataToMapObjectConvertor {
 			supportedPostalAddress.addAll(Arrays.asList(splitPostalSupported[1].trim().replace("[", "").replace("]", "")
 					.replace("{", "").replace("}", "").split(";")));
 
-			rules.put("postalCodes", supportedPostalAddress);
+			rules.put("postalsSupported", supportedPostalAddress);
 			if (columnsArray.length >= 5) {
 				String[] splitCustomRules = columnsArray[4].split(";");
 				for (int i = 0; i < splitCustomRules.length; ++i) {

@@ -26,7 +26,7 @@ public class JobSearchDaoImpl implements JobSearchDao {
 
 	private Map<String, Object> fetchSourceDataFromFileSystem() throws IOException {
 		return FileDataToMapObjectConvertor.readFile(new File(
-				"C:\\Users\\lalit goyal\\git\\spring-restful-api\\src\\main\\resources\\company_wise_job_info.txt"));
+				"C:\\Users\\lalit goyal\\git\\spring-restful-api\\src\\main\\resources\\company_wise_job_info_data.txt"));
 	}
 
 	@SuppressWarnings({ "unchecked" })
@@ -48,23 +48,15 @@ public class JobSearchDaoImpl implements JobSearchDao {
 						companyDetails.put("name", (String) companyInfo.get("name"));
 						companyDetails.put("phoneNumber", (String) companyInfo.get("phoneNumber"));
 						companyDetailsList.add(companyDetails);
-					} else if (criteria != null && criteria.size() > 0) {
+					} else if (criteria != null && criteria.size() > 1) {
 						boolean isFirstMatchingRuleFoundForCompany = false;
 						Map<String, Object> rules = (Map<String, Object>) companyInfo.get("rules");
+						List<String> supportedPostalCodes = (List<String>) rules.remove("postalsSupported");
 						for (Map.Entry<String, Object> rule : rules.entrySet()) {
 							for (Map.Entry<String, String> criteriaMap : criteria.entrySet()) {
-								if (criteriaMap.getKey().equals(rule.getKey())) {
-									if (rule.getValue() instanceof List<?>) {
-										// TODO Not working P1
-										if (((List<String>) rule.getValue())
-												.contains(criteriaMap.getKey().toString())) {
-											Map<String, Object> companyDetails = new HashMap<String, Object>();
-											companyDetails.put("name", (String) companyInfo.get("name"));
-											companyDetails.put("phoneNumber", (String) companyInfo.get("phoneNumber"));
-											companyDetailsList.add(companyDetails);
-											isFirstMatchingRuleFoundForCompany = true;
-										}
-									} else if (criteriaMap.getValue().equals((String) rule.getValue())) {
+								if (criteriaMap.getKey().equals((String) rule.getKey())) {
+									if (criteriaMap.getValue().equals((String) rule.getValue())
+											&& supportedPostalCodes.contains(criteria.get("postCode"))) {
 										Map<String, Object> companyDetails = new HashMap<String, Object>();
 										companyDetails.put("name", (String) companyInfo.get("name"));
 										companyDetails.put("phoneNumber", (String) companyInfo.get("phoneNumber"));

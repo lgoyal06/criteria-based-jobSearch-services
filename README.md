@@ -4,22 +4,18 @@ Test Project to build restful service that will send you list of companies based
 
 Example of URL
 
-1. Search companies with job cleaning and minHours as 2 hours
-
-   URL - http://localhost:8080/search/job/cleaning?criterias={minHours=2}
-
-2. Search companies with job cleaning and no criteria
+1. Search companies with job cleaning and no criteria
 
    URL - http://localhost:8080/search/job/cleaning
 
-3. Search companies with job plumbing and postCode as 2000 and 24HourService as true
+2. Search companies with job cleaning and postCode as 2000 and minHours as 2 and minRooms as 1
 
-   URL - http://localhost:8080/search/job/plumbing?criterias={postCode=2000;24hourService=true}
+   URL - http://localhost:8080/search/job/cleaning?criterias={postCode=2000;minHours=2;minRooms=1}
    
-4. Search companies with job plumbing and no criteria
+3. Search companies with job plumbing and no criteria
 
    URL - http://localhost:8080/search/job/plumbing
    
-5. Search companies with job plumbing and postCode as 2000 and 24HourService as true and minHours=1
+4. Search companies with job plumbing and postCode as 2034 and 24HoursService as false and minHours as 0
 
-   URL - http://localhost:8080/search/job/plumbing?criterias={postCode=2000;24hourService=true;minHours=1}
+   URL - http://localhost:8080/search/job/plumbing?criterias={postCode=2034;minHours=0;24HoursService=false}
